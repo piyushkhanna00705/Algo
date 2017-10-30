@@ -1,0 +1,67 @@
+/*
+Nitika was once reading a history book and wanted to analyze it. So she asked her brother to create a list of names of the various famous personalities in the book. Her brother gave Nitika the list. Nitika was furious when she saw the list. The names of the people were not properly formatted. She doesn't like this and would like to properly format it.
+
+A name can have at most three parts: first name, middle name and last name. It will have at least one part. The last name is always present. The rules of formatting a name are very simple:
+
+Only the first letter of each part of the name should be capital.
+All the parts of the name except the last part should be represented by only two characters. The first character should be the first letter of the part and should be capitalized. The second character should be ".".
+Let us look at some examples of formatting according to these rules:
+
+gandhi -> Gandhi
+mahatma gandhI -> M. Gandhi
+Mohndas KaramChand ganDhi -> M. K. Gandhi
+*/
+
+
+
+#include<bits/stdc++.h>
+#include<ctype.h>
+using namespace std;
+ 
+int main()
+{
+int t;
+cin>>t;
+t++;
+ 
+while(t>0)
+{	
+ 
+char str[50],fin[50];
+int cur=0,k=0,i=0;
+gets(str);
+for(;str[i]!='\0';i++)
+{
+cur++;
+ 
+if(str[i]==' ')
+{
+fin[k]=toupper(str[i+1-cur]);
+k++;
+fin[k]='.';
+k++;
+fin[k]=' ';
+k++;
+cur=0;
+ 
+}
+ 
+}
+int l=i-cur;
+fin[k]=toupper(str[l]);
+ 
+while(l<i)
+{
+k++;
+l++;
+fin[k]=tolower(str[l]);
+}
+k++;
+fin[k]='\0';
+cout<<fin<<"\n";
+t--;
+}
+	return 0;
+}
+ 
+ 
