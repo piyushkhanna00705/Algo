@@ -1,0 +1,57 @@
+/*
+Mathison recently inherited an ancient papyrus that contained some text. Unfortunately, the text was not a PANGRAM. Now, Mathison has a particular liking for holoalphabetic strings and the text bothers him. The good news is that Mathison can buy letters from the local store in order to turn his text into a pangram.
+
+However, each letter has a price and Mathison is not very rich. Can you help Mathison find the cheapest way to obtain a pangram?
+
+Input
+The first line of the input file will contain one integer, T, representing the number of tests.
+
+Each test will be formed from two lines. The first one contains 26 space-separated integers, representing the prices of all letters. The second will contain Mathison's initial text (a string of N lowercase letters).
+
+Output
+The output file will contain T lines, one for each test. Each line will contain the answer for the corresponding test.
+*/
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int pri[26],let[26],sum=0;
+		string s;
+		for(int i=0;i<26;i++)
+		let[i]=0;
+		for(int i=0;i<26;i++)
+		cin>>pri[i];
+		cin>>s;
+	
+		for(int i=0;s[i]!='\0';i++)
+		{
+			s[i]=(int)(s[i]-97);
+			let[s[i]]=1;
+			
+		}
+		for(int i=0;i<26;i++)
+		{
+			if(let[i]==0)
+			{
+				sum+=pri[i];
+			}
+ 
+			
+		}
+		cout<<sum<<"\n";
+		
+	}
+ 
+	
+	
+	return 0;
+} 
